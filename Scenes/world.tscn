@@ -21,9 +21,10 @@ uv1_triplanar = true
 albedo_texture = ExtResource("3_fo5ed")
 uv1_triplanar = true
 
-[node name="World" type="Node3D" node_paths=PackedStringArray("current_cam")]
+[node name="World" type="Node3D" node_paths=PackedStringArray("current_cam", "selected_cam")]
 script = ExtResource("4_8j60k")
-current_cam = NodePath("Cameras/Room1")
+current_cam = NodePath("Cameras/Player")
+selected_cam = NodePath("Cameras/Room1")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -142,6 +143,19 @@ grow_horizontal = 0
 grow_vertical = 0
 focus_mode = 0
 text = "Cam 3"
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="Current Cam Label" type="Label" parent="Debug"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Current Cam: "
+
+[node name="Selected Cam Label" type="Label" parent="Debug"]
+offset_top = 20.0
+offset_right = 104.0
+offset_bottom = 43.0
+text = "Selected Cam: "
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
