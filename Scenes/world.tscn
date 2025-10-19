@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://bq3ew2got8d1r"]
+
+[ext_resource type="Texture2D" uid="uid://bqyo1fui2lkwa" path="res://Assets/texture_grey.png" id="1_5a7ea"]
+[ext_resource type="Texture2D" uid="uid://dqv4pxdt2ihx8" path="res://Assets/texture_green.png" id="2_8j60k"]
+[ext_resource type="Texture2D" uid="uid://d0tgei8uxmyem" path="res://Assets/texture_orange.png" id="3_fo5ed"]
+[ext_resource type="Script" uid="uid://csn15vm1or7dh" path="res://Scripts/camera_manager.gd" id="4_8j60k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ukr8"]
+albedo_texture = ExtResource("1_5a7ea")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o06y3"]
+albedo_texture = ExtResource("2_8j60k")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7acu"]
+albedo_texture = ExtResource("3_fo5ed")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5v1tr"]
+albedo_texture = ExtResource("3_fo5ed")
+uv1_triplanar = true
+
+[node name="World" type="Node3D" node_paths=PackedStringArray("current_cam")]
+script = ExtResource("4_8j60k")
+current_cam = NodePath("Cameras/Room1")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3.14869)
+material_override = SubResource("StandardMaterial3D_5ukr8")
+flip_faces = true
+size = Vector3(4, 1, 3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.54919)
+flip_faces = true
+size = Vector3(2, 1, 1.96191)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90944, 0, 0)
+flip_faces = true
+size = Vector3(1.83301, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43249, 0, -2.51927)
+flip_faces = true
+size = Vector3(0.817871, 1, 2.39453)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43249, 0, -2.51927)
+flip_faces = true
+size = Vector3(0.817871, 1, 2.39453)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28842, 0, 1.36988)
+flip_faces = true
+size = Vector3(1, 1, 1.76123)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Map/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0752759, 0, -3.81126)
+flip_faces = true
+size = Vector3(2.20557, 1, 2.31689)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334482, 0.172424, -7.19785)
+material_override = SubResource("StandardMaterial3D_o06y3")
+radius = 0.0947266
+height = 0.465942
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.688825, 0.172424, -3.68934)
+material_override = SubResource("StandardMaterial3D_k7acu")
+radius = 0.0947266
+height = 0.465942
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.287788, 0.172424, -3.80044)
+material_override = SubResource("StandardMaterial3D_5v1tr")
+radius = 0.0947266
+height = 0.465942
+
+[node name="Cameras" type="Node3D" parent="."]
+
+[node name="Player" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63517, 0.146407)
+fov = 60.7513
+
+[node name="Room1" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.626835, 0.250721, -0.737711, -1.49012e-08, 0.946812, 0.321786, 0.779152, -0.201707, 0.593495, -1.83291, 0.776339, -1.88843)
+
+[node name="Room2" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.628981, -0.41281, 0.658764, 0, 0.847372, 0.530999, -0.77742, -0.333989, 0.532981, 0.938264, 0.876514, -6.13615)
+
+[node name="Room3" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3155, 0.542625, -0.723702)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -91.0
+offset_right = -18.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "Cam 1"
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -157.0
+offset_right = -18.0
+offset_bottom = -91.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "Cam 2"
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -224.0
+offset_right = -18.0
+offset_bottom = -158.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "Cam 3"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_button_3_pressed"]
